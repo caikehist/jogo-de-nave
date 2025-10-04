@@ -1,5 +1,11 @@
 /* global Phaser */
 
+import SplashScene from './splashScene.js'
+import TitleScene from './titleScene.js'
+
+const splashScene = new SplashScene()
+const titleScene = new TitleScene()
+
 const config = {
 	type: Phaser.AUTO,
 	width: 1360,
@@ -10,7 +16,7 @@ const config = {
 			debug: true
 		}
 	},
-	backgroundColor: 0x5f6e7a,
+	backgroundColor: '#ffffff',
 	scale: {
 		mode: Phaser.Scale.FIT,
 
@@ -20,3 +26,10 @@ const config = {
 }
 
 const game = new Phaser.Game(config)
+
+// load scenes (key)
+game.scene.add('splashScene', splashScene)
+game.scene.add('titleScene', titleScene)
+
+// start
+game.scene.start('splashScene')
